@@ -1,8 +1,5 @@
 package management;
 
-import java.time.LocalDate;
-import java.util.List;
-
 public class Main {
     public static void main(String[] args) {
         PersonDAO personDAO = new PersonDAO();
@@ -24,7 +21,7 @@ public class Main {
         personDAO.findAll().forEach(System.out::println);
 
 
-        iAppUser appUser=new AppUserDAO();
+        iAppUserDAO appUser=new AppUserDAO();
 // adding user
         appUser.persist(new AppUser("noxbondy","pass12345"));
         appUser.persist(new AppUser("nour","nou123456"));

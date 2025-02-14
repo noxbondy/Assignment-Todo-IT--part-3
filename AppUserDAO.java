@@ -1,7 +1,7 @@
 package management;
 import java.util.*;
 
-public class AppUserDAO implements iAppUser{
+public class AppUserDAO implements iAppUserDAO {
     private final Map<String, AppUser> userMap = new HashMap<>();
 
     @Override
