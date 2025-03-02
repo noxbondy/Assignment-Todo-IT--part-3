@@ -15,8 +15,8 @@ public class AppUserDAO implements iAppUserDAO {
     }
 
     @Override
-    public List<AppUser> findAll() {
-        return new ArrayList<>(userMap.values());
+    public HashSet<AppUser> findAll() {
+        return new HashSet<>(userMap.values());
     }
 
     @Override

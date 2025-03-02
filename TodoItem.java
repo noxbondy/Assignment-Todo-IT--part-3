@@ -9,17 +9,17 @@ public class TodoItem {
     private boolean isDone;
     private  int creatorId;
 
+
     //  constructor
 
-
-    public TodoItem(int id, String title, String description, int dueDate, boolean isDone, int creatorId) {
-        this.id = id;
-        this.title = title;
-        this.description=description;
-        this.dueDate = LocalDate.ofEpochDay(dueDate);
-        this.isDone = isDone;
-        this.creatorId = creatorId;
+    public TodoItem(int creatorId, String title,String description, LocalDate dueDate) {
+        setTitle(title);
+        setDescription(description);
+       setDueDate(dueDate);
+       setCreatorId(creatorId);
+        setId(id);
     }
+
 
     // get and set method
 
@@ -29,14 +29,18 @@ public class TodoItem {
     }
 
     public void setId(int id) {
-        this.id = id;
+        this.id = TodoItemIdSequencer.nextId();
     }
+
 
     public String getTitle() {
         return title;
     }
 
     public void setTitle(String title) {
+        if (title.trim().isEmpty()){
+            throw new IllegalArgumentException("title is missing");
+        }
         this.title = title;
     }
 
@@ -53,6 +57,9 @@ public class TodoItem {
     }
 
     public void setDueDate(LocalDate dueDate) {
+        if (dueDate==null){
+            throw new IllegalArgumentException("task due date missing");
+        }
         this.dueDate = dueDate;
     }
 
@@ -64,19 +71,19 @@ public class TodoItem {
         isDone = done;
     }
 
-    public int getCreatorId() {
-        return creatorId;
-    }
-
     public void setCreatorId(int creatorId) {
         this.creatorId = creatorId;
+    }
+
+    public int getCreatorId() {
+        return 0;
     }
 
     @Override
     public String toString() {
         return "TodoItem{" +
-                "creatorId=" + creatorId +
-                ", id=" + id +
+                "id=" + id +
+                ", creatorId=" + creatorId +
                 ", title='" + title + '\'' +
                 ", description='" + description + '\'' +
                 ", dueDate=" + dueDate +

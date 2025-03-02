@@ -3,7 +3,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PersonIdSequencer {
-    private static int currentId = 0;
+    static int currentId ;
 
     public static int nextId() {
         return ++currentId;

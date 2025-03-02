@@ -25,8 +25,8 @@ public class PersonDAO implements iPersonDAO {
     }
 
     @Override
-    public List<Person> findAll() {
-        return new ArrayList<>(people);
+    public HashSet<Person> findAll() {
+        return new HashSet<>(people);
     }
 
     @Override
